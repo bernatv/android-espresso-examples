@@ -1,6 +1,5 @@
 package com.example.bernatvarela.espressotestapp.presentation.espresso;
 
-
 import android.os.SystemClock;
 import android.support.test.espresso.NoMatchingViewException;
 import android.support.test.espresso.action.ViewActions;
