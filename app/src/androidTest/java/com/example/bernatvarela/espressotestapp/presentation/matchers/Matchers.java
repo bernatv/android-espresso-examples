@@ -14,6 +14,22 @@ public class Matchers {
             public boolean matchesSafely(String item) {
                 return text.matches(item);
             }
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("with text: " + text.toString());
+                description.toString();
+            }
+        };
+    }
+
+    public static Matcher<Object> containsString(final String text) {
+        Checks.checkNotNull(text);
+        return new BoundedMatcher<Object, String>(String.class) {
+            @Override
+            public boolean matchesSafely(String item) {
+                return text.contains(text);
+            }
             @Override
             public void describeTo(Description description) {
                 description.appendText("with text: " + text.toString());

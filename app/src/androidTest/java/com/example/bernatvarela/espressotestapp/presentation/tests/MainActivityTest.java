@@ -25,4 +25,11 @@ public class MainActivityTest extends BaseTest {
         espresso.waitFor(EspressoBase.TIME_TO_WAIT_SHORT);
         espresso.existsTextElement(mainPage.getStringToBeFound());
     }
+
+    @Test
+    public void shouldBeAbleToScrollAndFindAElementWithTextFragment() {
+        espresso.waitFor(EspressoBase.TIME_TO_WAIT_SHORT);
+        espresso.tapOnListElementThatContainsText(mainPage.getPartStringToBeFound(), mainPage.getList());
+        espresso.waitFor(EspressoBase.TIME_TO_WAIT_SHORT);
+        espresso.existsTextElement(mainPage.getStringToBeFound());    }
 }

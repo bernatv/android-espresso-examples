@@ -172,6 +172,13 @@ public class EspressoBase {
                 .perform(click());
     }
 
+    public void tapOnListElementThatContainsText(String text, int id) {
+        tooSmallWaitForId(id);
+        onData(Matchers.containsString(text))
+                .inAdapterView(withId(id))
+                .perform(click());
+    }
+
     public void tooSmallWaitForText(String text) {
         long startTime = System.currentTimeMillis();
         while( !existsTextElement(text)
