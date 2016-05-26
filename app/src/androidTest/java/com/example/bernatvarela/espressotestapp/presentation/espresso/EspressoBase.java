@@ -167,7 +167,7 @@ public class EspressoBase {
 
     public void tapOnListElementWithText(String text, int id) {
         tooSmallWaitForId(id);
-        onData(matchers.withString(text))
+        onData(Matchers.withString(text))
                 .inAdapterView(withId(id))
                 .perform(click());
     }
