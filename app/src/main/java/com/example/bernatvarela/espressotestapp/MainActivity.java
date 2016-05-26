@@ -11,26 +11,25 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity {
     private ListView mainListView;
     private ArrayAdapter<String> listAdapter;
-    private String[] planets;
+    private String[] movies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mainListView = (ListView) findViewById( R.id.mainListView );
-        int planetsLimit = 0;
+        int moviesLimit = 0;
 
-        planets = new String[] { "Mercury", "Venus", "Earth", "Mars",
-                "Jupiter", "Saturn", "Uranus", "Neptune"};
+        movies = new String[] { "Movie" };
 
-        ArrayList<String> planetList = new ArrayList<String>();
-        planetList.addAll(Arrays.asList(planets));
+        ArrayList<String> movieList = new ArrayList<String>();
+        movieList.addAll(Arrays.asList(movies));
 
-        listAdapter = new ArrayAdapter<String>(this, R.layout.row, planetList);
+        listAdapter = new ArrayAdapter<String>(this, R.layout.row, movieList);
 
-        while(planetsLimit != 100) {
-            listAdapter.add( "Planet" + ": " + planetsLimit );
-            planetsLimit = planetsLimit + 1;
+        while(moviesLimit != 100) {
+            listAdapter.add( "Movie" + ": " + moviesLimit );
+            moviesLimit = moviesLimit + 1;
         }
         mainListView.setAdapter(listAdapter);
     }
