@@ -29,9 +29,11 @@ public class MainActivity extends AppCompatActivity {
         listAdapter = new ArrayAdapter<String>(this, R.layout.row, movieList);
 
         while(moviesLimit != 100) {
-            listAdapter.add( MOVIE + ": " + moviesLimit );
+            listAdapter.add( MOVIE + ": " + Integer.toString(moviesLimit) );
             moviesLimit = moviesLimit + 1;
         }
+        listAdapter.add("find me");
+
         mainListView.setAdapter(listAdapter);
     }
 }

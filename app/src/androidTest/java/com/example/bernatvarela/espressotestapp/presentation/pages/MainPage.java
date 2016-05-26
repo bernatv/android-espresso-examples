@@ -4,11 +4,10 @@ import com.example.bernatvarela.espressotestapp.R;
 
 public class MainPage {
     private static final String movie = "Movie";
-    private static final int list = R.id.mainListView;
+    protected static final int list = R.id.mainListView;
+    protected String stringToBeFound = "Movie: 66";
 
-    public MainPage() {
-
-    }
+    public MainPage() {}
 
     public int getList() {
         return list;
@@ -16,5 +15,9 @@ public class MainPage {
 
     public String getMovie() {
         return movie;
+    }
+
+    public String getStringToBeFound() {
+        return stringToBeFound;
     }
 }
