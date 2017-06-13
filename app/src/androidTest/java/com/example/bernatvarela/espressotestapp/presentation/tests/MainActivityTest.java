@@ -12,24 +12,22 @@ public class MainActivityTest extends BaseTest {
         mainPage = new MainPage();
     }
 
-    @Test
-    public void shouldBeAbleToRunTheTest() {
+    @Test public void shouldBeAbleToRunTheTest() {
         espresso.textDisplayed(mainPage.getMovie());
         espresso.idDisplayed(mainPage.getList());
     }
 
-    @Test
-    public void shouldBeAbleToScrollToMovie() {
+    @Test public void shouldBeAbleToScrollToMovie() {
         espresso.waitFor(EspressoBase.TIME_TO_WAIT_SHORT);
         espresso.tapOnListElementWithText(mainPage.getStringToBeFound(), mainPage.getList());
         espresso.waitFor(EspressoBase.TIME_TO_WAIT_SHORT);
         espresso.existsTextElement(mainPage.getStringToBeFound());
     }
 
-    @Test
-    public void shouldBeAbleToScrollAndFindAElementWithTextFragment() {
+    @Test public void shouldBeAbleToScrollAndFindAElementWithTextFragment() {
         espresso.waitFor(EspressoBase.TIME_TO_WAIT_SHORT);
         espresso.tapOnListElementThatContainsText(mainPage.getPartStringToBeFound(), mainPage.getList());
         espresso.waitFor(EspressoBase.TIME_TO_WAIT_SHORT);
-        espresso.existsTextElement(mainPage.getStringToBeFound());    }
+        espresso.existsTextElement(mainPage.getStringToBeFound());
+    }
 }
