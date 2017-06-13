@@ -4,6 +4,8 @@ import android.os.SystemClock;
 import android.support.test.espresso.NoMatchingViewException;
 import android.support.test.espresso.action.ViewActions;
 
+import com.example.bernatvarela.espressotestapp.presentation.matchers.Matchers;
+
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -32,8 +34,10 @@ public class EspressoBase {
     public static final int TIME_TO_WAIT_SHORT = 2;
     private static EspressoBase instance = null;
     public static final String DUE_SOON = "Due soon";
+    public Matchers matchers;
 
     public EspressoBase() {
+        matchers = new Matchers();
     }
 
     public static EspressoBase getInstance() {
@@ -158,6 +162,20 @@ public class EspressoBase {
         onData(anything())
                 .inAdapterView(withId(id))
                 .atPosition(position)
+                .perform(click());
+    }
+
+    public void tapOnListElementWithText(String text, int id) {
+        tooSmallWaitForId(id);
+        onData(Matchers.withString(text))
+                .inAdapterView(withId(id))
+                .perform(click());
+    }
+
+    public void tapOnListElementThatContainsText(String text, int id) {
+        tooSmallWaitForId(id);
+        onData(Matchers.containsString(text))
+                .inAdapterView(withId(id))
                 .perform(click());
     }
 
