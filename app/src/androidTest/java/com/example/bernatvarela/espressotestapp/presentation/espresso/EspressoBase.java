@@ -174,9 +174,11 @@ public class EspressoBase {
 
     public void tapOnListElementThatContainsText(String text, int id) {
         tooSmallWaitForId(id);
-        onData(Matchers.containsString(text))
+        onData(Matchers.withString("Movie: 70"))
                 .inAdapterView(withId(id))
+                .check(matches(isDisplayed()))
                 .perform(click());
+
     }
 
     public void tooSmallWaitForText(String text) {
