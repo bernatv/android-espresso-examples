@@ -31,3 +31,4 @@ class MainActivityTest : BaseTest() {
         espresso.existsTextElement(mainPage.stringToBeFound)
     }
 }
+
